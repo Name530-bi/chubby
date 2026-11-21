@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IT × DGT Reunion 2026 – สุ่มเลข 6 หลัก</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1b2150;--navy2:#22307a;--or:#ff6a00;--yl:#ffd23f;--pe:#ffb27a;--gd:#c8962e;--tx:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Prompt',system-ui,sans-serif;color:var(--tx);
+background:radial-gradient(circle at 20% 10%,var(--navy2),transparent 55%),radial-gradient(circle at 90% 90%,#2a3a8f,transparent 50%),var(--navy);
+display:flex;flex-direction:column;align-items:center;padding:28px 16px 40px;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}.bg span{position:absolute;text-align:center;font-weight:800;color:rgba(70,105,225,.22)}.title,.machine,.hist{position:relative;z-index:1}.note{margin-top:14px;font-size:13px;opacity:.85;text-align:center;position:relative;z-index:1;min-height:18px}.title{text-align:center}
+.tag{font-size:12px;letter-spacing:.12em;color:var(--yl);font-weight:600}
+h1{margin:6px 0 4px;font-size:clamp(26px,7vw,44px);font-weight:800;letter-spacing:.02em}
+.sub{font-size:clamp(12px,3.2vw,15px);opacity:.9;line-height:1.5}
+.pill{display:inline-block;margin:16px 0 22px;background:var(--or);color:#fff;border-radius:999px;padding:8px 16px;font-size:clamp(11px,3vw,14px);font-weight:600;line-height:1.5;text-align:center}
+.machine{width:100%;max-width:640px;background:rgba(10,14,50,.55);border:2px solid var(--gd);border-radius:24px;padding:22px 12px 18px;box-shadow:0 0 40px rgba(255,106,0,.25),inset 0 0 30px rgba(0,0,0,.35)}
+.reels{display:flex;justify-content:center;gap:clamp(4px,1.5vw,10px);font-size:clamp(46px,14.5vw,96px)}
+.win{height:1.2em;width:.78em;overflow:hidden;border-radius:.14em;background:linear-gradient(#0d1235,#1a2268 50%,#0d1235);border:2px solid rgba(255,255,255,.18);position:relative}
+.win::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),transparent 28%,transparent 72%,rgba(0,0,0,.55));pointer-events:none}
+.strip{will-change:transform}
+.strip div{height:1.2em;line-height:1.2em;text-align:center;font-weight:800}
+.r0 .strip{color:var(--or)}.r1 .strip{color:var(--yl)}.r2 .strip{color:var(--pe)}
+.r3 .strip{color:var(--or)}.r4 .strip{color:var(--yl)}.r5 .strip{color:var(--gd)}
+.adm{display:none;position:fixed;inset:0;background:rgba(27,33,80,.55);z-index:50;align-items:center;justify-content:center;padding:16px}.adm.on{display:flex}.admbox{background:var(--navy);border:2px solid var(--gd);border-radius:20px;padding:20px;width:100%;max-width:420px;text-align:center}.admbox b{display:block;margin-bottom:14px;color:var(--yl)}.admbox .range{margin-top:0}.admbtns{margin-top:16px;display:flex;gap:8px;justify-content:center}.admbox button{font-size:15px;padding:10px 22px;background:var(--or);color:#fff}#pinrow{display:flex;gap:8px}#pin{flex:1;min-width:0;font:inherit;padding:10px;border-radius:12px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;text-align:center}.range{display:flex;gap:12px;justify-content:center;margin-top:18px}.range label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--yl);flex:1;max-width:200px}.range input{font-family:inherit;font-size:20px;font-weight:600;width:100%;padding:10px 12px;border-radius:12px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;text-align:center;letter-spacing:.1em;font-variant-numeric:tabular-nums}.range input:focus{outline:none;border-color:var(--or)}.btns{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+button{font-family:inherit;font-weight:800;font-size:18px;border:0;border-radius:999px;padding:14px 34px;cursor:pointer;transition:transform .1s}
+button:active{transform:scale(.96)}
+#go{background:linear-gradient(135deg,var(--or),var(--yl));color:#1b2150;box-shadow:0 6px 20px rgba(255,106,0,.45)}
+#cp{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);font-size:15px;font-weight:600;padding:12px 22px}
+button:disabled{opacity:.5;cursor:default}
+.hist{width:100%;max-width:640px;margin-top:26px}
+.hist h2{font-size:14px;font-weight:600;color:var(--yl);margin:0 0 8px;letter-spacing:.08em}
+#list{display:flex;flex-wrap:wrap;gap:8px;min-height:34px}
+#list span{background:rgba(255,255,255,.1);border-radius:10px;padding:6px 12px;font-weight:600;letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.empty{opacity:.5;font-size:13px}
+.win.done{animation:pop .5s}
+@keyframes pop{50%{box-shadow:0 0 24px var(--yl);transform:scale(1.06)}}
+</style>
+</head>
+<body>
+<div class="bg" id="bg"></div>
+<div class="title">
+  <div class="tag">30<sup>th</sup> IT · 5<sup>th</sup> DGT · @SUT</div>
+  <h1>IT × DGT REUNION 2026</h1>
+  <div class="sub">30<sup>th</sup> Information Technology | 5<sup>th</sup> Digital Arts and Science<br>Suranaree University of Technology</div>
+  <div class="pill">สโมสรทหารบก ถ.วิภาวดี กรุงเทพฯ</div>
+</div>
+
+<div class="machine">
+  <div class="reels" id="reels"></div>
+  <div id="adm" class="adm on"><div class="admbox"><b>ตั้งค่าช่วงเลขก่อนเริ่มสุ่ม</b><div id="pinrow" style="display:none"><input id="pin" type="password" inputmode="numeric" placeholder="รหัสผ่าน"><button id="pinok">เข้าสู่ระบบ</button></div><div id="setrow"><div class="range">
+    <label>เลขเริ่มต้น<input id="mn" type="number" inputmode="numeric" min="0" max="999999" value="0"></label>
+    <label>เลขสิ้นสุด<input id="mx" type="number" inputmode="numeric" min="0" max="999999" value="999999"></label>
+  </div><div class="admbtns"><button id="adrs">รีเซ็ตเลขที่ออกแล้ว</button><button id="adok">ตกลง</button></div></div></div></div>
+  <div class="btns">
+    <button id="go">🎰 สุ่มเลข</button>
+    <button id="cp">คัดลอก</button>
+  </div>
+</div>
+
+<div class="note" id="note"></div>
+
+<div class="hist">
+  <h2>ผลก่อนหน้า</h2>
+  <div id="list"><span class="empty" style="background:none;padding:0;letter-spacing:0">ยังไม่มีผลการสุ่ม</span></div>
+</div>
+
+<script>
+(function(){
+  var N=6, H=1.2, reels=[], idx=[], cur="000000", busy=false;
+  var box=document.getElementById('reels');
+  for(var i=0;i<N;i++){
+    var w=document.createElement('div');w.className='win r'+i;
+    var s=document.createElement('div');s.className='strip';
+    var h='';for(var k=0;k<100;k++)h+='<div>'+(k%10)+'</div>';
+    s.innerHTML=h;w.appendChild(s);box.appendChild(w);
+    reels.push({w:w,s:s});idx.push(0);
+  }
+  function rnd(dry){var mn=document.getElementById('mn'),mx=document.getElementById('mx'),lo=parseInt(mn.value,10),hi=parseInt(mx.value,10);if(isNaN(lo))lo=0;if(isNaN(hi))hi=999999;lo=Math.max(0,Math.min(999999,lo));hi=Math.max(0,Math.min(999999,hi));if(lo>hi){var q=lo;lo=hi;hi=q}mn.value=lo;mx.value=hi;if(dry){upd();return}var u=used.filter(function(x){return x>=lo&&x<=hi}).sort(function(x,y){return x-y}),free=hi-lo+1-u.length;if(free<=0){upd();return null}var a=new Uint32Array(1),lim=Math.floor(4294967296/free)*free;do{crypto.getRandomValues(a)}while(a[0]>=lim);var v=lo+a[0]%free;for(var i=0;i<u.length;i++){if(u[i]<=v)v++;else break}used.push(v);saveUsed();upd();return String(v).padStart(N,'0').split('').map(Number)}
+  function place(i,d){var s=reels[i].s;s.style.transition='none';s.style.transform='translateY('+(-d*H)+'em)';idx[i]=d}
+  for(var i=0;i<N;i++)place(i,0);
+  var go=document.getElementById('go'),cp=document.getElementById('cp'),list=document.getElementById('list');
+  var hist=[];
+  function spin(){
+    if(busy)return;busy=true;go.disabled=true;
+    var t=rnd();if(!t){busy=false;go.disabled=false;note.textContent='เลขในช่วงนี้ถูกสุ่มครบแล้ว — รีเซ็ตได้ที่หน้าตั้งค่า';return}var left=N;
+    t.forEach(function(d,i){
+      var s=reels[i].s,from=idx[i]%10,diff=(d-from+10)%10,steps=10*(1+i)+diff+(i?0:10);
+      var to=idx[i]+steps,dur=1.4+i*0.5;
+      void s.offsetWidth;
+      s.style.transition='transform '+dur+'s cubic-bezier(.12,.7,.15,1)';
+      s.style.transform='translateY('+(-to*H)+'em)';
+      setTimeout(function(){
+        place(i,d);
+        reels[i].w.classList.remove('done');void reels[i].w.offsetWidth;reels[i].w.classList.add('done');
+        if(--left===0){
+          cur=t.join('');busy=false;go.disabled=false;
+          hist.unshift(cur);hist=hist.slice(0,10);
+          list.innerHTML=hist.map(function(x){return '<span>'+x+'</span>'}).join('');
+        }
+      },dur*1000+60);
+    });
+  }
+  go.addEventListener('click',spin);
+  var bg=document.getElementById('bg'),SEQ=['3','0','✦\uFE0E','6','0','♥\uFE0E','1','5','3','0','2','6'];
+  function drawBg(){var cw=Math.max(110,Math.min(190,innerWidth/4)),ch=cw*1.05,cols=Math.ceil(innerWidth/cw)+2,rows=Math.ceil(innerHeight/ch)+2,h='',n=0;for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){var t=SEQ[(n*5+r*3)%SEQ.length];n++;h+='<span style="left:'+(c*cw-(r%2?cw/2:0))+'px;top:'+(r*ch-ch/3)+'px;font-size:'+(cw*1.15)+'px;width:'+cw+'px;height:'+ch+'px;line-height:'+ch+'px">'+t+'</span>'}bg.innerHTML=h}
+  drawBg();window.addEventListener('resize',drawBg);
+  var used=[],note=document.getElementById('note');
+  try{used=JSON.parse(localStorage.getItem('used')||'[]')}catch(e){}
+  function saveUsed(){try{localStorage.setItem('used',JSON.stringify(used))}catch(e){}}
+  function upd(){var lo=parseInt(document.getElementById('mn').value,10),hi=parseInt(document.getElementById('mx').value,10);if(isNaN(lo)||isNaN(hi))return;var n=used.filter(function(x){return x>=lo&&x<=hi}).length;note.textContent='เหลือ '+(hi-lo+1-n)+' เลขที่ยังไม่ถูกสุ่ม'}
+  document.getElementById('adrs').addEventListener('click',function(){used=[];saveUsed();upd();var b=this;b.textContent='รีเซ็ตแล้ว ✓';setTimeout(function(){b.textContent='รีเซ็ตเลขที่ออกแล้ว'},1500)});
+  var PIN='2026',adm=document.getElementById('adm'),pinrow=document.getElementById('pinrow'),setrow=document.getElementById('setrow'),pin=document.getElementById('pin'),amn=document.getElementById('mn'),amx=document.getElementById('mx');
+  try{var sv=JSON.parse(localStorage.getItem('rng')||'null');if(sv){amn.value=sv.a;amx.value=sv.b}}catch(e){}
+  upd();var taps=0,tt;
+  function closeAdm(){adm.classList.remove('on')}
+  document.querySelector('.tag').addEventListener('click',function(){taps++;clearTimeout(tt);tt=setTimeout(function(){taps=0},1500);if(taps>=5){taps=0;adm.classList.add('on')}});
+  document.getElementById('pinok').addEventListener('click',function(){if(pin.value===PIN){pinrow.style.display='none';setrow.style.display=''}else{pin.value='';pin.placeholder='รหัสผิด'}});
+  document.getElementById('adok').addEventListener('click',function(){rnd(true);try{localStorage.setItem('rng',JSON.stringify({a:amn.value,b:amx.value}))}catch(e){}closeAdm()});
+  
+  
+  cp.addEventListener('click',function(){
+    try{navigator.clipboard.writeText(cur).then(function(){cp.textContent='คัดลอกแล้ว ✓';setTimeout(function(){cp.textContent='คัดลอก'},1500)})}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
